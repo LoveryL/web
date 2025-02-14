@@ -3,7 +3,7 @@
 <head>
     <meta charset="GB18030">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>贪吃蛇游戏</title>
+    <title>Game</title>
     <style>
         body {
             display: flex;
@@ -34,7 +34,7 @@
     </style>
 </head>
 <body>
-    <div id="score">得分: 0</div>
+    <div id="score">Score: 0</div>
     <div id="game-board"></div>
 
     <script>
@@ -76,7 +76,7 @@
                 }
             });
             cells[food.y * cols + food.x].classList.add('food');
-            scoreDisplay.textContent = `得分: ${score}`;
+            scoreDisplay.textContent = `Score: ${score}`;
         }
 
         function moveSnake() {
@@ -98,7 +98,7 @@
                     gameInterval = setInterval(moveSnake, interval);
                 }
                 if (score === 30) { // 得分30分时显示游戏成功
-                    alert('游戏成功！');
+                    alert('Game Successful！');
                     resetGame();
                 } else {
                     generateFood();
@@ -135,7 +135,7 @@
         }
 
         function endGame() {
-            const restart = confirm(`游戏结束！得分：${score}\n是否重来？`);
+            const restart = confirm(`Game Over！Score：${score}\nDo you want to again？`);
             if (restart) {
                 resetGame();
             } else {
